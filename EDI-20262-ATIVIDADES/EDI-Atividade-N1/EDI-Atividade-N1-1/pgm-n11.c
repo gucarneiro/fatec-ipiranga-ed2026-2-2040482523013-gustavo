@@ -60,7 +60,6 @@ int main() {
         printf("\nInforme o valor do bonus a aplicar: (utilize '.')");
         scanf("%f", &bonus);
     }
-    
 
     printf("\n#---- Media da Turma antes do bonus: ----#");
     printf("\nMedia: %.2f", calculcarMedia(notas, TAMANHO_TURMA));
@@ -73,8 +72,6 @@ int main() {
 
     printf("\n\n#---- Aplicacao do bonus: ----#");
     printf("\nBonus de %.2f aplicado em TODAS as notas da turma.", bonus);
-
-    
 
     printf("\n\n#---- Notas finais da turma: ----#");
     for (int i = 0; i < TAMANHO_TURMA; i++){ //laco de repeticao para realizar a alteracao das notas conforme a funcao "aplicarBonus" e printar o resultado das notas apos acrescimo
