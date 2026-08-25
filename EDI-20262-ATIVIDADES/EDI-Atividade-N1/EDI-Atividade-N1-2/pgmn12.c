@@ -16,10 +16,9 @@
 int estoque[TAMANHO_ESTOQUE]; // declaracao da variavel global "estoque"
 
 void exibirCabecalho(){ //cabecalho da empresa e titulo do programa
-    printf("====================");
-    printf("\n|    ConstruMais   |");
-    printf("\n====================");
-    printf("\n* SISTEMA DE ESTOQUE *\n\n");
+    printf("================================");
+    printf("\nSISTEMA DE ESTOQUE - LOJA CONSTRUMAIS");
+    printf("\n===============================\n\n");
 }
 
 void preencherEstoque(){ //percorre o vetor global "estoque" e guarda quantidade informada pelo usuário
@@ -38,16 +37,16 @@ void preencherEstoque(){ //percorre o vetor global "estoque" e guarda quantidade
 
 void exibirEstoque(int momento){ //printa todos os produtos do estoque, de acordo com o momento desejado (0 = estoque atual, 1 = estoque final)
     if (momento == 0){
-        printf("\n#--- Estoque Atual ---#");
+        printf("\n-- Estoque atual (antes da reposicao) --");
     } 
     else{
-        printf("\n\n#--- Estoque Final ---#");
+        printf("\n\n-- Estoque final (apos reposicao) --");
     }
 
     int *p = estoque;
 
     for (int i = 0; i < TAMANHO_ESTOQUE; i++){
-        printf("\nQuantidade do produto %d: %d unidades", i+1, *(p+i));
+        printf("\nProduto %d: %d unidades", i+1, *(p+i));
     }
 }
 
@@ -67,16 +66,16 @@ float calcularMediaEstoque(){ //calcula a media geral de todos os produtos do es
 }
 
 void simularReposicao(int quantidadeAtual, int reposicao){ //simmula o acrescimo de reposicao do produto 1 (elemento 0 do vetor global "estoque")
-    printf("\n\n#--- Simulacao de reposicao ---#");
+    printf("\n\n-- Simulacao de reposicao --");
 
-    printf("\nSimulacao para o produto 1: %d + %d = %d (NAO aplicado ainda)", quantidadeAtual, reposicao, quantidadeAtual+reposicao);
+    printf("\nSimulacao para o produto 1: %d + %d = %d (nao aplicado ainda)", quantidadeAtual, reposicao, quantidadeAtual+reposicao);
 }
 
 void aplicarReposicaoGeral(int reposicao){ //percorre o vetor global "estoque" utilizando apontamento do endereço e acrescenta o valor da reposicao para cada produto
     int *p = estoque;
 
-    printf("\n\n#--- Aplicacao da reposicao aos produtos ---#");
-    printf("\nReposicao de %d unidades para todos os produtos do estoque.", reposicao);
+    printf("\n\n-- Aplicacao real da reposicao (ponteiro interno ao vetor global) --");
+    printf("\nReposicao de %d unidades aplicada a todos os produtos do estoque.", reposicao);
 
     for (int i = 0; i < TAMANHO_ESTOQUE; i++){
     *(p+i) += reposicao;
@@ -87,11 +86,11 @@ void identificarEstoqueCritico(int minimo){ //percorre o vetor global "estoque" 
     int *p = estoque;
     int verificaEstoque = 0;
 
-    printf("\n\n#--- Analise de Estoque | Minimo = 10 Unds por produto ---#");
+    printf("\n\n-- Analise de estoque critico (minimo = 10 unidades) --");
 
     for (int i = 0; i < TAMANHO_ESTOQUE; i++){
         if (*(p+i) < minimo){
-            printf("\nO produto %d esta em nivel critico: %d unidades (%d unidades abaixo do minimo).", (i+1), *(p+i), (minimo - *(p+i)));
+            printf("\nO produto %d esta em nivel critico: %d unidades (abaixo do minimo)", (i+1), *(p+i));
         } 
         else{ //caso o produto seja >= ao minimo, acrescenta 1 na contagem "verificaEstoque", no final verifica se a "verificaEstoque" = TAMANHO_ESTOQUE
             verificaEstoque++;
@@ -108,7 +107,7 @@ int main(){
 
     preencherEstoque();
     int copiaValorProduto = estoque[0], reposicao; //faz uma copia do valor armazenado no elemento 0 do vetor global "estoque"
-    printf("\nQuantidade de reposicao a aplicar: ");
+    printf("Quantidade de reposicao a aplicar: ");
     scanf("%d", &reposicao);
     
     exibirEstoque(0);
@@ -120,7 +119,7 @@ int main(){
 
     exibirEstoque(1);
 
-    printf("\n\n#--- Media geral do estoque ---#");
+    printf("\n\n-- Media geral do estoque --");
     printf("\nMedia final: %.2f unidades", calcularMediaEstoque());
 
     identificarEstoqueCritico(ESTOQUE_MINIMO);
