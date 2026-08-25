@@ -12,9 +12,9 @@
 #define TAMANHO_TURMA 5 //define a quantidade de alunos na turma
 
 void exibirCabecalho(){ //cabecalho da instiuicao e titulo do programa
-    printf("+------------------------------------+\n");
-    printf("| Faculdade de Tecnologia - Ipiranga |\n");
-    printf("+------------------------------------+\n");
+    printf("===============================\n");
+    printf("SISTEMA DE NOTAS - TURMA ADS\n");
+    printf("===============================\n");
     printf("Sistema de Ajuste e Análise de Notas.\n\n");
 }
 
@@ -44,42 +44,42 @@ int main() {
     float notas[TAMANHO_TURMA], bonus;
 
     for(int i = 0; i < TAMANHO_TURMA; i++){ //laco de repeticao para percorrer o array e guardar as notas dos alunos
-        printf("Digite a nota do aluno %d: ", (i+1));
+        printf("Nota do aluno %d: ", (i+1));
         scanf("%f", &notas[i]);
         while (notas[i] < 0 || notas[i] > 10){//validacao de nota, verifica se é uma nota válida dentro do padrão 0 a 10
             printf("\nNota inválida, tente novamente: ");
-            printf("\nDigite a nota do aluno %d: ", (i+1));
+            printf("\nNota do aluno %d: ", (i+1));
             scanf("%f", &notas[i]);
         }
     }
 
-    printf("\nInforme o valor do bonus a aplicar: (utilize '.')");
+    printf("\nInforme o valor do bonus a aplicar: ");
     scanf("%f", &bonus);
     while (bonus < 0){ //validacao de bonus, verifica se o bonus é maior ou igual a 0
         printf("Bonus inválido, tente novamente.");
-        printf("\nInforme o valor do bonus a aplicar: (utilize '.')");
+        printf("\nInforme o valor do bonus a aplicar: ");
         scanf("%f", &bonus);
     }
 
-    printf("\n#---- Media da Turma antes do bonus: ----#");
+    printf("\n-- Media da turma antes do ajuste: --");
     printf("\nMedia: %.2f", calculcarMedia(notas, TAMANHO_TURMA));
 
-    printf("\n\n#---- Simulação de ajuste: ----#");
+    printf("\n\n-- Simulação de ajuste: --");
     printf("\nSimulação do aluno 1: %.2f + %.2f = ", notas[0], bonus);
     simularAjuste(notas[0], bonus);
-    printf(" (NÃO aplicado ainda.)");
-    printf("\nNota do aluno 1 apos a simulação (*SEM ALTERAÇÕES*): %.2f", notas[0]);
+    printf(" (nao aplicado ainda.)");
+    printf("\nNota do aluno 1 apos a simulação (inalterada): %.2f", notas[0]);
 
-    printf("\n\n#---- Aplicacao do bonus: ----#");
-    printf("\nBonus de %.2f aplicado em TODAS as notas da turma.", bonus);
+    printf("\n\n-- Aplicacao real do bonus (passagem por referencia) ---");
+    printf("\nBonus de %.2f aplicado a todas as notas da turma.", bonus);
 
-    printf("\n\n#---- Notas finais da turma: ----#");
+    printf("\n\n-- Notas finais da turma --");
     for (int i = 0; i < TAMANHO_TURMA; i++){ //laco de repeticao para realizar a alteracao das notas conforme a funcao "aplicarBonus" e printar o resultado das notas apos acrescimo
         aplicarBonus(&notas[i], bonus);
         printf("\nAluno %d: %.2f", (i+1), notas[i]);
     }
 
-    printf("\n\n#---- Media da turma apos ajuste de bonus: ----#");
+    printf("\n\n-- Media da turma apos ajuste --");
     printf("\nMedia final: %.2f", calculcarMedia(notas, TAMANHO_TURMA));
 
     return 0;
