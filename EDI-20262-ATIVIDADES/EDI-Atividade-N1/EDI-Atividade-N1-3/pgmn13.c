@@ -1,3 +1,12 @@
+/*
+ * Programa criado para fazer o gerenciamento de frota de veiculos para empresa "Lava Rapido Brilho Total", utilizando recursividade, 
+ * apontamento e alocacao de memoria.
+ *
+ * Autor: Gustavo Carneiro Alves da Silva
+ * Data: 31/08/26
+ * Versao: 1.0.0
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
