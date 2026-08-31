@@ -1,11 +1,14 @@
-/*
- * Programa criado para fazer o gerenciamento de frota de veiculos para empresa "Lava Rapido Brilho Total", utilizando recursividade, 
- * apontamento e alocacao de memoria.
- *
- * Autor: Gustavo Carneiro Alves da Silva
- * Data: 31/08/26
- * Versao: 1.0.0
- */
+/*----------------------------------------------------------------------------------*/
+/*                                FATEC-Ipiranga                                    */        
+/*                            ADS - Estrutura de Dados                              */
+/*                             Id da Atividade: N1-3                                */
+/*             Objetivo: Programa criado para fazer o gerenciamento de frota de     */
+/*     veiculos para empresa "Lava Rapido Brilho Total", utilizando recursividade,  */
+/*                       apontamento e alocacao de memoria.                         */
+/*                                                                                  */
+/*                                  Autor: Gustavo Carneiro                         */
+/*                                                                  Data: 31/08/2026*/
+/*----------------------------------------------------------------------------------*/
 
 #include <stdio.h>
 #include <stdlib.h>
